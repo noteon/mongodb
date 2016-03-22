@@ -1,5 +1,5 @@
 FROM ubuntu:14.04
-MAINTAINER Tutum Labs <support@tutum.co>
+MAINTAINER QingHai <qinghai@gmail.com>
 
 RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10 && \
     echo "deb http://repo.mongodb.org/apt/ubuntu "$(lsb_release -sc)"/mongodb-org/3.0 multiverse" | tee /etc/apt/sources.list.d/mongodb-org-3.0.list && \
@@ -14,11 +14,11 @@ VOLUME /data/db
 
 ENV AUTH yes
 ENV STORAGE_ENGINE wiredTiger
-ENV JOURNALING yes
+ENV JOURNALING no
 
 ADD run.sh /run.sh
 ADD set_mongodb_password.sh /set_mongodb_password.sh
 
-EXPOSE 27017 28017
+EXPOSE 27017
 
 CMD ["/run.sh"]

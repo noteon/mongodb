@@ -1,5 +1,5 @@
 FROM ubuntu:14.04
-MAINTAINER Tutum Labs <support@tutum.co>
+MAINTAINER QingHai <qinghai@gmail.com>
 
 RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10 && \
     echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' | sudo tee /etc/apt/sources.list.d/mongodb.list && \
@@ -15,6 +15,7 @@ VOLUME /data/db
 
 ENV AUTH yes
 ENV JOURNALING yes
+ENV SMALLFILES no
 
 ADD run.sh /run.sh
 ADD set_mongodb_password.sh /set_mongodb_password.sh

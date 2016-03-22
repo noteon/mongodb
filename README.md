@@ -1,11 +1,11 @@
-tutum-docker-mongodb
+noteon-docker-mongodb
 ====================
 **This image will be deprecated soon. Please use the docker official image:**
 
 https://hub.docker.com/_/mongo/
 
 
-[![Deploy to Tutum](https://s.tutum.co/deploy-to-tutum.svg)](https://dashboard.tutum.co/stack/deploy/)
+[![Deploy to noteon](https://s.noteon.co/deploy-to-noteon.svg)](https://dashboard.noteon.co/stack/deploy/)
 
 Base docker image to run a MongoDB database server
 
@@ -13,15 +13,15 @@ Base docker image to run a MongoDB database server
 MongoDB version
 ---------------
 
-Different versions are built from different folders. If you want to use MongoDB, please check our `tutum/mongodb` image: https://github.com/tutumcloud/tutum-docker-mongodb
+Different versions are built from different folders. If you want to use MongoDB, please check our `noteon/mongodb` image: https://github.com/noteoncloud/noteon-docker-mongodb
 
 
 Usage
 -----
 
-To create the image `tutum/mongodb`, execute the following command on the tutum-mongodb folder:
+To create the image `noteon/mongodb`, execute the following command on the noteon-mongodb folder:
 
-        docker build -t tutum/mongodb 2.6/ .
+        docker build -t noteon/mongodb 2.6/ .
 
 
 Running the MongoDB server
@@ -29,7 +29,7 @@ Running the MongoDB server
 
 Run the following command to start MongoDB:
 
-        docker run -d -p 27017:27017 -p 28017:28017 tutum/mongodb
+        docker run -d -p 27017:27017 -p 28017:28017 noteon/mongodb
 
 The first time that you run your container, a new random password will be set.
 To get the password, check the logs of the container by running:
@@ -60,7 +60,7 @@ Setting a specific password for the admin account
 If you want to use a preset password instead of a randomly generated one, you can
 set the environment variable `MONGODB_PASS` to your specific password when running the container:
 
-        docker run -d -p 27017:27017 -p 28017:28017 -e MONGODB_PASS="mypass" tutum/mongodb
+        docker run -d -p 27017:27017 -p 28017:28017 -e MONGODB_PASS="mypass" noteon/mongodb
 
 You can now test your new admin password:
 
@@ -73,7 +73,7 @@ Setting a specific user:database
 
 If you want to use another database with another user
 
-    docker run -d -p 27017:27017 -p 28017:28017 -e MONGODB_USER="user" -e MONGODB_DATABASE="mydatabase" -e MONGODB_PASS="mypass" tutum/mongodb
+    docker run -d -p 27017:27017 -p 28017:28017 -e MONGODB_USER="user" -e MONGODB_DATABASE="mydatabase" -e MONGODB_PASS="mypass" noteon/mongodb
 
 You can now test your new credentials:
 
@@ -88,7 +88,7 @@ Run MongoDB without password
 
 If you want to run MongoDB without password you can set the environment variable `AUTH` to specific if you want password or not when running the container:
 
-        docker run -d -p 27017:27017 -p 28017:28017 -e AUTH=no tutum/mongodb
+        docker run -d -p 27017:27017 -p 28017:28017 -e AUTH=no noteon/mongodb
 
 By default is "yes".
 
@@ -98,7 +98,7 @@ Run MongoDB with a specific storage engine
 
 In MongoDB 3.0 there is a new environment variable `STORAGE_ENGINE` to specific the mongod storage driver:
 
-        docker run -d -p 27017:27017 -p 28017:28017 -e AUTH=no -e STORAGE_ENGINE=mmapv1 tutum/mongodb:3.0
+        docker run -d -p 27017:27017 -p 28017:28017 -e AUTH=no -e STORAGE_ENGINE=mmapv1 noteon/mongodb:3.0
 
 By default is "wiredTiger".
 
@@ -108,9 +108,9 @@ Change the default oplog size
 
 In MongoDB 3.0 the variable `OPLOG_SIZE` can be used to specify the mongod oplog size in megabytes:
 
-        docker run -d -p 27017:27017 -p 28017:28017 -e AUTH=no -e OPLOG_SIZE=50 tutum/mongodb:3.0
+        docker run -d -p 27017:27017 -p 28017:28017 -e AUTH=no -e OPLOG_SIZE=50 noteon/mongodb:3.0
 
 By default MongoDB allocates 5% of the available free disk space, but will always allocate at least 1 gigabyte and never more than 50 gigabytes.
 
 
-**by http://www.tutum.co**
+**by http://www.noteon.co**

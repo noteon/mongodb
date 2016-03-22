@@ -1,0 +1,13 @@
+db:
+  image: noteon/mongodb:30
+  environment:
+    MONGODB_DATABASE:"admin"
+    MONGODB_USER:"admin"
+    MONGODB_PASS: "YOUR-PWD"
+    AUTH: "yes"
+    JOURNALING: "yes"
+    SMALLFILES: "no"
+    
+  ports:
+    - 27017:27017
+    - 28017:28017
