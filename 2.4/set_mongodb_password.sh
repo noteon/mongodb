@@ -16,7 +16,12 @@ done
 echo "=> Creating an ${USER} user with a ${_word} password in MongoDB"
 mongo admin << EOF
 use $DATABASE
-db.addUser('$USER', '$PASS', false)
+db.addUser('$USER', '$PASS')
+
+use sample
+db.addUser("reader","$PASS",true)
+db.addUser("writer","$PASS")
+
 EOF
 
 echo "=> Done!"
