@@ -7,6 +7,8 @@ db:
     AUTH: "yes"
     JOURNALING: "yes"
     SMALLFILES: "no"
+    CREATE_SAMPLES_DB_AND_USER:"no"
+    SAMPLE_USER_PWD:"SAMPLE_PWD"
     
   ports:
     - 27017:27017
