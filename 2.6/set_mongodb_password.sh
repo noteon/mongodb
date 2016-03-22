@@ -16,7 +16,7 @@ done
 echo "=> Creating an ${USER} user with a ${_word} password in MongoDB"
 mongo admin << EOF
 use $DATABASE
-db.createUser({user: '$USER', pwd: '$PASS', roles:[{role:'dbOwner',db:'$DATABASE'}]})
+db.createUser({user: '$USER', pwd: '$PASS', roles:[{role:'dbAdminAnyDatabase',db:'$DATABASE'}]})
 EOF
 
 mongo admin -u $USER -p $PASS<< EOF
