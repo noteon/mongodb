@@ -1,4 +1,4 @@
-FROM mongo:2.4
+FROM mongo:2.2
 MAINTAINER QingHai <qinghai@gmail.com>
 
 RUN apt-get update && \
