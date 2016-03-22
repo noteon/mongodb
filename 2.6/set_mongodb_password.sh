@@ -19,23 +19,6 @@ use $DATABASE
 db.createUser({user: '$USER', pwd: '$PASS', roles:[{role:'dbOwner',db:'$DATABASE'}]})
 EOF
 
-if [ "$CREATE_SAMPLES_DB_AND_USER" == "yes" ]; then
-echo "=> Creating an writer user with a  password in MongoDB"
-mongo admin << EOF
-use $DATABASE
-db.createUser({user: 'writer', pwd: '$PASS', roles:[{role:'readWrite',db:'samples'}]})
-EOF
-fi
-
-if [ "$CREATE_SAMPLES_DB_AND_USER" == "yes" ]; then
-echo "=> Creating an reader user with a  password in MongoDB"
-mongo admin << EOF
-use $DATABASE
-db.createUser({user: 'reader', pwd: '$PASS', roles:[{role:'reader',db:'samples'}]})
-EOF
-fi
-
-
 echo "=> Done!"
 touch /data/db/.mongodb_password_set
 
