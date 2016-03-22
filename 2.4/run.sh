@@ -2,7 +2,7 @@
 set -m
 
 mongodb_cmd="mongod"
-cmd="$mongodb_cmd --master"
+cmd="$mongodb_cmd --master --noprealloc"
 if [ "$AUTH" == "yes" ]; then
     cmd="$cmd --auth"
 fi
