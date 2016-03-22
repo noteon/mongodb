@@ -24,6 +24,13 @@ db.createUser({user: '$USER', pwd: '$PASS', roles:[{role:'dbOwner',db:'$DATABASE
 EOF
 fi
 
+mongo admin -u $USER -p $PASS<< EOF
+use sample
+db.createUser({user: 'writer', pwd: '$PASS', roles:[{role:'dbOwner',db:'sample'}]})
+db.createUser({user: 'reader', pwd: '$PASS', roles:[{role:'read',db:'sample'}]})
+EOF
+
+
 echo "=> Done!"
 touch /data/db/.mongodb_password_set
 
