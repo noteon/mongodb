@@ -7,6 +7,10 @@ if [ "$AUTH" == "yes" ]; then
     cmd="$cmd --auth"
 fi
 
+if [ "$SMALLFILES" == "yes" ]; then
+    cmd="$cmd --smallfiles"
+fi
+
 if [ "$JOURNALING" == "no" ]; then
     cmd="$cmd --nojournal"
 fi

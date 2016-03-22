@@ -16,7 +16,6 @@ VOLUME /data/db
 ENV AUTH yes
 ENV JOURNALING yes
 ENV SMALLFILES no
-ENV CREATE_SAMPLES_DB_AND_USER no
 
 ADD run.sh /run.sh
 ADD set_mongodb_password.sh /set_mongodb_password.sh
